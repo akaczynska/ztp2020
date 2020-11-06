@@ -1,15 +1,26 @@
 #include <iostream>
 #include <math.h>
-
 using namespace std;
 
+int power_singles(int a, int b) {
+    int tmp = a % 10;
+    int mod[4];
+
+    for (int i=0; i < 4; i++) {
+        mod[i] = tmp % 10;
+        tmp *= a % 10;
+    }
+    return mod[(b - 1) % 4];
+}
+
 int main() {
-    int D, a, b;
-    cin >> D;
-    for (int i = 0; i < D; i++) {
+
+    int s, a, b;
+    cin >> s;
+    for (int i = 0; i < s; i++) {
         cin >> a;
         cin >> b;
-        cout << (int(pow(a, b)))%10 << endl;
+        cout << power_singles(a,b) << endl;
     }
     return 0;
 }
